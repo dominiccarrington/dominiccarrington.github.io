@@ -44,6 +44,9 @@ export default {
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
+    ['nuxt-fontawesome', {
+      component: 'fa'
+    }]
   ],
   /*
   ** Axios module configuration
@@ -61,5 +64,19 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+
+  router: {
+    routes: [
+      {
+        name: 'home',
+        path: '/',
+        component: 'pages/index.vue'
+      }
+    ]
+  },
+
+  generate: {
+    fallback: true
   }
 }
