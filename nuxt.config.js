@@ -66,16 +66,6 @@ export default {
     }
   },
 
-  router: {
-    routes: [
-      {
-        name: 'home',
-        path: '/',
-        component: 'pages/index.vue'
-      }
-    ]
-  },
-
   generate: {
     fallback: true
   }

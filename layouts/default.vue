@@ -1,22 +1,10 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col">
-        <navbar></navbar>
-      </div>
+    <navbar></navbar>
+    <div class="container">
+      <nuxt></nuxt>
     </div>
-    <div class="row">
-      <div class="col">
-        <div class="container">
-          <nuxt></nuxt>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <footer></footer>
-      </div>
-    </div>
+    <footer></footer>
   </div>
 </template>
 
@@ -31,5 +19,9 @@
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .container {
+    height: 100%;
+  }
 </style>
+
