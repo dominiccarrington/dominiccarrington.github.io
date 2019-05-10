@@ -1,4 +1,14 @@
-import pkg from './package'
+import pkg from './package';
+
+let blogposts = require('./static/blogposts.json');
+blogposts = Object.keys(blogposts);
+
+function blogpostURL(key) {
+  const tmp = key.split('-');
+  const date = tmp.slice(0, 3);
+  const rest = tmp.slice(3);
+  return `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`;
+}
 
 export default {
   mode: 'spa',
@@ -7,7 +17,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: "Dominic Carrington's Personal Website",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -27,6 +37,7 @@ export default {
   ** Global CSS
   */
   css: [
+    "./node_modules/prismjs/themes/prism.css"
   ],
 
   /*
@@ -46,8 +57,28 @@ export default {
     '@nuxtjs/pwa',
     ['nuxt-fontawesome', {
       component: 'fa'
-    }]
+    }],
+    '@nuxtjs/markdownit',
+    '@nuxtjs/moment'
   ],
+
+  markdownit: {
+    injected: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    html: true,
+    use: [
+      ['markdown-it-prism', {
+        init() {
+          require('prismjs/components/prism-clike');
+          require('prismjs/components/prism-markup-templating');
+          require('prismjs/components/prism-php');
+        }
+      }]
+    ]
+  },
+
   /*
   ** Axios module configuration
   */
@@ -67,6 +98,8 @@ export default {
   },
 
   generate: {
-    fallback: true
+    fallback: true,
+    subFolders: true,
+    routes: [].concat(blogposts.map(b => blogpostURL(b)))
   }
 }

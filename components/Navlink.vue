@@ -18,11 +18,18 @@ export default {
   },
   watch: {
     $route() {
-      this.active = this.$router.currentRoute.path == this.link;
+      this.active = this.pageActive();
     }
   },
   mounted() {
-      this.active = this.$router.currentRoute.path == this.link;
+    this.active = this.pageActive();
+  },
+  methods: {
+    pageActive() {
+      let currentPath = this.$router.currentRoute.path;
+
+      return currentPath == "/" && this.link == "/" || (this.link != "/" && currentPath.indexOf(this.link) >= 0);
+    }
   }
 }
 </script>

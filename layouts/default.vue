@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar></navbar>
-    <div class="container">
+    <div class="container mt-4">
       <nuxt></nuxt>
     </div>
     <footer></footer>
@@ -20,8 +20,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    height: 100%;
-  }
 </style>
 

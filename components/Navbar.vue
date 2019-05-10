@@ -8,7 +8,9 @@
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav mr-auto">
         <navlink text="Home" link="/"></navlink>
+        <navlink text="Blog" link="/blog"></navlink>
         <navlink text="Mods" link="/mods"></navlink>
+        <navlink text="Tools" link="/tools"></navlink>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
