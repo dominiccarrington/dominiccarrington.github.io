@@ -10,7 +10,7 @@
     "start": "nuxt start",
     "generate": "yarn run md2json && nuxt generate",
     "deploy": "yarn run generate && push-dir --dir=dist --branch=master --cleanup",
-    "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json"
+    "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json && node postsToTags.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",

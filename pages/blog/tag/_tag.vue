@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col">
-        <h1>My Blog</h1>
+        <h1>{{ tag }}</h1>
       </div>
     </div>
     <div class="row">
@@ -21,8 +21,9 @@ import BlogTags from "~/components/Blog/Tags.vue";
 import TableOfPosts from "~/components/Blog/TableOfPosts.vue";
 
 export default {
-  async asyncData({app}) {
+  async asyncData({app, params}) {
     const blogposts = await app.$axios.$get("/blogposts.json");
+    const tag = params.tag;
 
     let posts = [];
     for (let id in blogposts) {
@@ -31,11 +32,12 @@ export default {
     }
 
     posts = posts.sort((a, b) => {
-      return app.$moment(b.iso8601Date).unix() - app.$moment(a.iso8601Date).unix();
+      return app.$moment(b.date).unix() - app.$moment(a.date).unix();
     });
 
     return {
-      posts
+      posts,
+      tag
     }
   },
   head() {

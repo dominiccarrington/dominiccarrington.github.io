@@ -3,11 +3,18 @@ import pkg from './package';
 let blogposts = require('./static/blogposts.json');
 blogposts = Object.keys(blogposts);
 
+let tags = require('./static/tags.json');
+tags = Object.keys(tags);
+
 function blogpostURL(key) {
   const tmp = key.split('-');
   const date = tmp.slice(0, 3);
   const rest = tmp.slice(3);
   return `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`;
+}
+
+function tagURL(key) {
+  return `/blog/tag/${key}`;
 }
 
 export default {
@@ -100,6 +107,6 @@ export default {
   generate: {
     fallback: true,
     subFolders: true,
-    routes: [].concat(blogposts.map(b => blogpostURL(b)))
+    routes: [].concat(blogposts.map(b => blogpostURL(b))).concat(tags.map(t => tagURL(t)))
   }
 }

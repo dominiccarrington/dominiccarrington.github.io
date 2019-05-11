@@ -2,7 +2,7 @@
   <div>
     <h2>Tags</h2>
     <ul>
-      <li v-for="(no, tag) in tags" :key="tag">{{ tag }} ({{ no }})</li>
+      <li v-for="(arr, tag) in tags" :key="tag"><nuxt-link :to="'/blog/tag/' + tag">{{ tag }} ({{ arr.length }})</nuxt-link></li>
     </ul>
   </div>
 </template>
@@ -12,20 +12,7 @@ import { defer } from 'q';
 export default {
   name: "blog-tags",
   async mounted() {
-    const blogposts = await this.$axios.$get("/blogposts.json");
-    let tags = {};
-    for (let post in blogposts) {
-      let blogtags = blogposts[post].tags != undefined ? blogposts[post].tags : [];
-      for (let tag of blogtags) {
-        if (tag != null) {
-          if (tags[tag] == undefined) tags[tag] = 0;
-
-          tags[tag]++;
-        }
-      }
-    }
-
-    this.tags = tags;
+    this.tags = await this.$axios.$get("/tags.json");
   },
   data() {
     return {
