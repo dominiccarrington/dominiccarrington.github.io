@@ -22,6 +22,7 @@ import TableOfPosts from "~/components/Blog/TableOfPosts.vue";
 
 export default {
   async asyncData({app}) {
+    // Move sorting into component
     const blogposts = await app.$axios.$get("/blogposts.json");
 
     let posts = [];
@@ -30,13 +31,9 @@ export default {
       posts.push(blogposts[id]);
     }
 
-    posts = posts.sort((a, b) => {
-      return app.$moment(b.iso8601Date).unix() - app.$moment(a.iso8601Date).unix();
-    });
-
     return {
       posts
-    }
+    };
   },
   head() {
     return {
