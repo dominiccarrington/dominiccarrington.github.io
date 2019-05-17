@@ -31,10 +31,6 @@ export default {
       posts.push(blogposts[id]);
     }
 
-    posts = posts.sort((a, b) => {
-      return app.$moment(b.date).unix() - app.$moment(a.date).unix();
-    });
-
     return {
       posts,
       tag
