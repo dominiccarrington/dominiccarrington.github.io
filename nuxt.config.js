@@ -81,6 +81,7 @@ export default {
           require('prismjs/components/prism-clike');
           require('prismjs/components/prism-markup-templating');
           require('prismjs/components/prism-php');
+          require('prismjs/components/prism-haskell');
         }
       }]
     ]
