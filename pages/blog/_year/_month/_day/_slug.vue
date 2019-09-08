@@ -1,6 +1,10 @@
 <template>
   <article>
     <h2>{{ blog.title }}</h2>
+    <section class="h6">
+      <small>Published On: {{ $moment(blog.iso8601Date).format("DD/MM/YYYY HH:mm") }}</small><br>
+      <small>Last Edited On: {{ $moment(blog.mtime).format("DD/MM/YYYY HH:mm") }}</small>
+    </section>
     <section class="blog-content" v-html="$md.render(blog.content)"></section>
   </article>
 </template>
