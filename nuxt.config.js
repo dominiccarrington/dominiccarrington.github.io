@@ -67,7 +67,8 @@ export default {
       component: 'fa'
     }],
     '@nuxtjs/markdownit',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/sitemap',
   ],
 
   markdownit: {
@@ -86,6 +87,9 @@ export default {
         }
       }]
     ]
+  },
+  sitemap: {
+    hostname: "https://dominiccarrington.github.io"
   },
 
   /*
