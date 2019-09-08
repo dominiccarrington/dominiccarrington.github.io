@@ -51,6 +51,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    // { src: '~plugins/nuxt-chartjs.js', ssr: false },
   ],
 
   /*
