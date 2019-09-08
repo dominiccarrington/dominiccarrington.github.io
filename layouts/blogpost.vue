@@ -3,10 +3,10 @@
     <navbar></navbar>
     <div class="container mt-4">
       <div class="row">
-        <div class="col-10">
+        <div class="col-md-10 col-12">
           <nuxt></nuxt>
         </div>
-        <div class="col-2">
+        <div class="col-md-2 hidden-sm">
           <BlogTags />
         </div>
       </div>
