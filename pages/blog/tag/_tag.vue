@@ -2,7 +2,8 @@
   <div>
     <div class="row">
       <div class="col">
-        <h1>{{ tag }}</h1>
+        <h1>My Blog</h1>
+        <h4>Posts tagged with: {{ tag }}</h4>
       </div>
     </div>
     <div class="row">
@@ -24,9 +25,10 @@ export default {
   async asyncData({app, params}) {
     const blogposts = await app.$axios.$get("/blogposts.json");
     const tag = params.tag;
+    const taggedPosts = await app.$axios.$get("/tags.json");
 
     let posts = [];
-    for (let id in blogposts) {
+    for (let id of taggedPosts[tag]) {
       blogposts[id]["id"] = id;
       posts.push(blogposts[id]);
     }
