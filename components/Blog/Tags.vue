@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { defer } from 'q';
 export default {
   name: "blog-tags",
   async mounted() {

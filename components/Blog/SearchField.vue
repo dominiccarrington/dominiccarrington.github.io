@@ -1,0 +1,105 @@
+<template>
+  <form @submit.prevent autocomplete="off" class="position-relative" v-click-outside="onBlur">
+    <input type="search" class="search-field form-control" placeholder="Search..." v-model="searchValue" @input="search">
+    <ul class="search-results" v-if="searchResults.length > 0">
+      <li v-for="result of searchResults.slice(0, 5)" :key="result.search.ref">
+        <nuxt-link :to="'/blog/' + $moment(result.iso8601Date).format('YYYY/MM/DD') + '/' + result.search.ref.substring(11)">
+          <h5 class="mb-0">{{ result.title }}</h5>
+        </nuxt-link>
+        <p class="mb-0"><small>{{ result.preview }}</small></p>
+        <b-progress :value="(result.search.score / totalScore) * 100" style="height: 1px;"></b-progress>
+      </li>
+    </ul>
+  </form>
+</template>
+
+<script>
+import vClickOutside from 'v-click-outside';
+const elasticlunr = require('elasticlunr');
+
+export default {
+  name: "SearchField",
+  data() {
+    return {
+      searchResults: [],
+      searchValue: "",
+      totalScore: 0,
+      index: null
+    }
+  },
+  async mounted() {
+    const dump = await this.$axios.$get("/indexed.json");
+    this.index = elasticlunr.Index.load(dump);
+    elasticlunr.clearStopWords();
+
+    this.blogposts = await this.$axios.$get("/blogposts.json");
+  },
+  directives: {
+    clickOutside: vClickOutside.directive,
+  },
+  methods: {
+    search() {
+      if (this.index !== null) {
+        this.totalScore = 0;
+        this.searchResults = this.index.search(this.searchValue, {
+          fields: {
+            title: {boost: 2},
+            tags: {boost: 2},
+            content: {boost: 1},
+          },
+          expand: true
+        }).map((val) => {
+          const post = this.blogposts[val.ref];
+          post.search = val;
+          return post;
+        });
+
+        this.searchResults.forEach((el) => this.totalScore += el.search.score);
+      }
+    },
+    onBlur(e) {
+      this.searchResults = [];
+    },
+    clear() {
+      this.searchResults = [];
+      this.searchValue = "";
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.clear();
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  .search-field {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .search-results {
+    display: block;
+    border: 1px solid var(--secondary);
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    padding: 5px;
+    width: 100%;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 5px;
+
+      p {
+        line-height: 1em;
+      }
+
+      .progress {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+    }
+  }
+</style>

@@ -234,3 +234,4 @@ yarn-error.log
 
 static/blogposts.json
 static/tags.json
+static/indexed.json

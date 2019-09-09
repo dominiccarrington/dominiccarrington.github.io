@@ -1,18 +1,7 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col">
-        <h1>My Blog</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-10">
-        <TableOfPosts :posts="posts"/>
-      </div>
-      <div class="col-2">
-        <BlogTags />
-      </div>
-    </div>
+    <h1>My Blog</h1>
+    <TableOfPosts :posts="posts"/>
   </div>
 </template>
 
@@ -21,6 +10,7 @@ import BlogTags from "~/components/Blog/Tags.vue";
 import TableOfPosts from "~/components/Blog/TableOfPosts.vue";
 
 export default {
+  layout: 'blogpost',
   async asyncData({app}) {
     // Move sorting into component
     const blogposts = await app.$axios.$get("/blogposts.json");

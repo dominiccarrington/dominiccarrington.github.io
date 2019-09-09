@@ -3381,6 +3381,11 @@ ejs@^2.6.1:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.1.tgz#5b5ab57f718b79d4aca9254457afecd36fa80228"
   integrity sha512-kS/gEPzZs3Y1rRsbGX4UOSjtP/CeJP0CxSNZHYxGfVM/VgLcv0ZqM7C45YyTj2DI2g7+P9Dd24C+IMIg6D0nYQ==
 
+elasticlunr@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/elasticlunr/-/elasticlunr-0.9.5.tgz#65541bb309dddd0cf94f2d1c8861b2be651bb0d5"
+  integrity sha1-ZVQbswnd3Qz5Ty0ciGGyvmUbsNU=
+
 electron-to-chromium@^1.3.247:
   version "1.3.252"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.252.tgz#5b6261965b564a0f4df0f1c86246487897017f52"
@@ -8724,6 +8729,11 @@ uuid@^3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
+
+v-click-outside@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/v-click-outside/-/v-click-outside-2.1.3.tgz#b7297abe833a439dc0895e6418a494381e64b5e7"
+  integrity sha512-8d11/fN+nkSPeor87K8OtGc/lDbRwbUiFwdzxQEGidlXt6eko3gIgRM7ghgi4p/zohF3Ja9hAaydAajV3gnlPQ==
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

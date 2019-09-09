@@ -27,7 +27,7 @@ export default {
     title: "Dominic Carrington's Personal Website",
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width,initial-scale=1,shrink-to-fit=no' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
@@ -51,7 +51,6 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    // { src: '~plugins/nuxt-chartjs.js', ssr: false },
   ],
 
   /*
