@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { Tags } from "~/components/Post";
+import { Tags } from "~/types";
 
 @Component({})
 export default class BlogTags extends Vue {

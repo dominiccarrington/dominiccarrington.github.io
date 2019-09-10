@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { Vue, Component, Watch } from "vue-property-decorator";
-import { Posts, Post, SearchResult } from "~/components/Post";
+import { Posts, Post, SearchResult } from "~/types";
 const elasticlunr = require('elasticlunr');
 const vClickOutside = require('v-click-outside');
 

@@ -13,7 +13,7 @@
 <script lang="ts">
   import { Vue, Component, Prop } from 'vue-property-decorator';
   import moment from 'moment';
-  import { Post } from "~/components/Post";
+  import { Post } from "~/types";
 
   @Component({})
   export default class TableOfPosts extends Vue {
