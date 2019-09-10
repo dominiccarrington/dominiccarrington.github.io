@@ -38,6 +38,8 @@
     "vue-chartjs": "^3.4.2"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "@nuxt/typescript-build": "^0.2.6",
+    "nodemon": "^1.18.9",
+    "vue-property-decorator": "^8.2.2"
   }
 }

@@ -7,17 +7,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "blog-tags",
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { Tags } from "~/types";
+
+@Component({})
+export default class BlogTags extends Vue {
+  public tags: Tags = {};
+
   async mounted() {
     this.tags = await this.$axios.$get("/tags.json");
-  },
-  data() {
-    return {
-      tags: {}
-    };
   }
 }
 </script>
-

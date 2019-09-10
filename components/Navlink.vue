@@ -4,32 +4,28 @@
   </li>
 </template>
 
-<script>
-export default {
-  name: "navlink",
-  props: [
-    'text',
-    'link'
-  ],
-  data() {
-    return {
-      active: false
-    };
-  },
-  watch: {
-    $route() {
-      this.active = this.pageActive();
-    }
-  },
+<script lang="ts">
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+
+@Component({})
+export default class Navlink extends Vue {
+  @Prop({ type: String, required: true }) readonly text!: string;
+  @Prop({ type: String, required: true }) readonly link!: string;
+  public active = false;
+
   mounted() {
     this.active = this.pageActive();
-  },
-  methods: {
-    pageActive() {
-      let currentPath = this.$router.currentRoute.path;
+  }
 
-      return currentPath == "/" && this.link == "/" || (this.link != "/" && currentPath.indexOf(this.link) >= 0);
-    }
+  @Watch('$route')
+  onRouteChanged() {
+    this.active = this.pageActive();
+  }
+
+  pageActive() {
+    let currentPath = this.$router.currentRoute.path;
+
+    return currentPath == "/" && this.link == "/" || (this.link != "/" && currentPath.indexOf(this.link) >= 0);
   }
 }
 </script>

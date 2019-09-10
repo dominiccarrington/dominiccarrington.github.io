@@ -13,62 +13,60 @@
   </form>
 </template>
 
-<script>
-import vClickOutside from 'v-click-outside';
+<script lang="ts">
+import { Vue, Component, Watch } from "vue-property-decorator";
+import { Posts, Post, SearchResult } from "~/types";
 const elasticlunr = require('elasticlunr');
+const vClickOutside = require('v-click-outside');
 
-export default {
-  name: "SearchField",
-  data() {
-    return {
-      searchResults: [],
-      searchValue: "",
-      totalScore: 0,
-      index: null
-    }
-  },
+@Component({
+  directives: {
+    clickOutside: vClickOutside.directive
+  }
+})
+export default class SearchField extends Vue {
+  public searchResults: Post[] = [];
+  public searchValue = "";
+  public totalScore = 0;
+  public index!: any;
+  public blogposts!: Posts;
+
   async mounted() {
     const dump = await this.$axios.$get("/indexed.json");
     this.index = elasticlunr.Index.load(dump);
     elasticlunr.clearStopWords();
 
     this.blogposts = await this.$axios.$get("/blogposts.json");
-  },
-  directives: {
-    clickOutside: vClickOutside.directive,
-  },
-  methods: {
-    search() {
-      if (this.index !== null) {
-        this.totalScore = 0;
-        this.searchResults = this.index.search(this.searchValue, {
-          fields: {
-            title: {boost: 2},
-            tags: {boost: 2},
-            content: {boost: 1},
-          },
-          expand: true
-        }).map((val) => {
-          const post = this.blogposts[val.ref];
-          post.search = val;
-          return post;
-        });
+  }
 
-        this.searchResults.forEach((el) => this.totalScore += el.search.score);
-      }
-    },
-    onBlur(e) {
-      this.searchResults = [];
-    },
-    clear() {
-      this.searchResults = [];
-      this.searchValue = "";
+  search() {
+    if (this.index !== null) {
+      this.totalScore = 0;
+      this.searchResults = (this.index.search(this.searchValue, {
+        fields: {
+          title: {boost: 2},
+          tags: {boost: 2},
+          content: {boost: 1},
+        },
+        expand: true
+      }) as SearchResult[]).map((val) => {
+        const post = this.blogposts[val.ref];
+        post.search = val;
+        return post;
+      });
+
+      this.searchResults.forEach((el) => this.totalScore += el.search ? el.search.score : 0);
     }
-  },
-  watch: {
-    $route (to, from) {
-      this.clear();
-    }
+  }
+
+  onBlur() {
+    this.searchResults = [];
+  }
+
+  @Watch('$route')
+  clear() {
+    this.searchResults = [];
+    this.searchValue = "";
   }
 }
 </script>

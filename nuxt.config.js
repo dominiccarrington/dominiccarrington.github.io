@@ -109,6 +109,8 @@ export default {
     }
   },
 
+  buildModules: ['@nuxt/typescript-build'],
+
   generate: {
     fallback: true,
     subFolders: true,
