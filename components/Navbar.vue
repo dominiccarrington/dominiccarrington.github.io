@@ -21,20 +21,19 @@
   </nav>
 </template>
 
-<script>
-  import Navlink from "~/components/Navlink.vue";
-  import { faGithub } from "@fortawesome/free-brands-svg-icons";
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import Navlink from "~/components/Navlink.vue";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-  export default {
-    name: "navbar",
-    components: {
-      Navlink
-    },
-    computed: {
-      faGithub() {
-        return faGithub;
-      }
-    }
+@Component({
+  components: {
+    Navlink
   }
-
+})
+export default class Navbar extends Vue {
+  get faGithub() {
+    return faGithub;
+  }
+}
 </script>
