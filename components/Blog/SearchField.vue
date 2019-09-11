@@ -18,8 +18,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch } from 'vue-property-decorator';
-import { Posts, Post, SearchResult } from '~/types';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Post, Posts, SearchResult } from '~/types';
 const elasticlunr = require('elasticlunr');
 const vClickOutside = require('v-click-outside');
 

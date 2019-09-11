@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Navlink from '~/components/Navlink.vue';
 

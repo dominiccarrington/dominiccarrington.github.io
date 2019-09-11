@@ -34,6 +34,11 @@ module.exports = {
     "lines-around-comment": [2, {
       'beforeBlockComment': false,
       'beforeLineComment': true
+    }],
+
+    //
+    "sort-imports": [1, {
+      'ignoreDeclarationSort': true
     }]
   }
 }
