@@ -9,20 +9,22 @@ const idx = elasticlunr(function() {
   this.addField('content');
 });
 
-let blogposts = JSON.parse(fs.readFileSync("static/blogposts.json").toString());
-let tags = {};
+const blogposts = JSON.parse(
+  fs.readFileSync('static/blogposts.json').toString()
+);
+const tags = {};
 
-for (let id in blogposts) {
-  let post = blogposts[id];
+for (const id in blogposts) {
+  const post = blogposts[id];
 
   // Add last modified time
-  const stats = fs.statSync("content/blogposts/" + id + ".md");
+  const stats = fs.statSync('content/blogposts/' + id + '.md');
   post.mtime = stats.mtime.toISOString();
 
   // Add to tag list
-  for (let tag of post.tags) {
+  for (const tag of post.tags) {
     if (tag != null) {
-      if (tags[tag] == undefined) {
+      if (tags[tag] === undefined) {
         tags[tag] = [];
       }
 
@@ -35,10 +37,10 @@ for (let id in blogposts) {
     slug: id,
     title: post.title,
     content: post.content,
-    tags: post.tags.join(' '),
+    tags: post.tags.join(' ')
   });
 }
 
-fs.writeFileSync("static/blogposts.json", JSON.stringify(blogposts));
-fs.writeFileSync("static/tags.json", JSON.stringify(tags));
-fs.writeFileSync("static/indexed.json", JSON.stringify(idx));
+fs.writeFileSync('static/blogposts.json', JSON.stringify(blogposts));
+fs.writeFileSync('static/tags.json', JSON.stringify(tags));
+fs.writeFileSync('static/indexed.json', JSON.stringify(idx));

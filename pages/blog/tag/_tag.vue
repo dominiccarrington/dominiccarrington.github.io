@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="col-10">
-        <TableOfPosts :posts="posts"/>
+        <TableOfPosts :posts="posts" />
       </div>
       <div class="col-2">
         <BlogTags />
@@ -18,34 +18,34 @@
 </template>
 
 <script>
-import BlogTags from "~/components/Blog/Tags.vue";
-import TableOfPosts from "~/components/Blog/TableOfPosts.vue";
+import BlogTags from '~/components/Blog/Tags.vue';
+import TableOfPosts from '~/components/Blog/TableOfPosts.vue';
 
 export default {
-  async asyncData({app, params}) {
-    const blogposts = await app.$axios.$get("/blogposts.json");
+  components: {
+    BlogTags,
+    TableOfPosts
+  },
+  async asyncData({ app, params }) {
+    const blogposts = await app.$axios.$get('/blogposts.json');
     const tag = params.tag;
-    const taggedPosts = await app.$axios.$get("/tags.json");
+    const taggedPosts = await app.$axios.$get('/tags.json');
 
-    let posts = [];
-    for (let id of taggedPosts[tag]) {
-      blogposts[id]["id"] = id;
+    const posts = [];
+    for (const id of taggedPosts[tag]) {
+      blogposts[id].id = id;
       posts.push(blogposts[id]);
     }
 
     return {
       posts,
       tag
-    }
+    };
   },
   head() {
     return {
       title: "Dominic Carrington's Blog"
     };
-  },
-  components: {
-    BlogTags,
-    TableOfPosts
   }
-}
+};
 </script>

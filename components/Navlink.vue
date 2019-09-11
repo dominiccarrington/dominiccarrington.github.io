@@ -1,11 +1,13 @@
 <template>
   <li :class="'nav-item' + (active ? ' active' : '')">
-    <nuxt-link :to="link" class="nav-link">{{ text }}</nuxt-link>
+    <nuxt-link :to="link" class="nav-link">
+      {{ text }}
+    </nuxt-link>
   </li>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class Navlink extends Vue {
@@ -23,9 +25,9 @@ export default class Navlink extends Vue {
   }
 
   pageActive() {
-    let currentPath = this.$router.currentRoute.path;
+    const currentPath = this.$router.currentRoute.path;
 
-    return currentPath == "/" && this.link == "/" || (this.link != "/" && currentPath.indexOf(this.link) >= 0);
+    return this.link === '/' ? currentPath === '/' : currentPath.includes(this.link);
   }
 }
 </script>

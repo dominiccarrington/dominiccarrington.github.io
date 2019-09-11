@@ -1,7 +1,7 @@
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 import { mixins } from 'vue-class-component';
-import { Bar, Doughnut, HorizontalBar, Line, Pie, Scatter } from 'vue-chartjs';
+import { Scatter } from 'vue-chartjs';
 import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({})

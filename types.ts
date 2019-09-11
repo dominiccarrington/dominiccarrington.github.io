@@ -1,5 +1,6 @@
-export interface Posts {
-  [key: string]: Post
+export interface SearchResult {
+  ref: string;
+  score: number;
 }
 
 export interface Post {
@@ -15,11 +16,10 @@ export interface Post {
   search?: SearchResult;
 }
 
-export interface Tags {
-  [key: string]: string[];
+export interface Posts {
+  [key: string]: Post;
 }
 
-export interface SearchResult {
-  ref: string;
-  score: number;
+export interface Tags {
+  [key: string]: string[];
 }
