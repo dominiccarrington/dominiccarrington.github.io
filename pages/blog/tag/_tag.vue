@@ -17,21 +17,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import BlogTags from '~/components/Blog/Tags.vue';
 import TableOfPosts from '~/components/Blog/TableOfPosts.vue';
+import { Post, Posts, Tags } from '~/types';
 
-export default {
+export default Vue.extend({
   components: {
     BlogTags,
     TableOfPosts
   },
   async asyncData({ app, params }) {
-    const blogposts = await app.$axios.$get('/blogposts.json');
+    const blogposts = await app.$axios.$get('/blogposts.json') as Posts;
     const tag = params.tag;
-    const taggedPosts = await app.$axios.$get('/tags.json');
+    const taggedPosts = await app.$axios.$get('/tags.json') as Tags;
 
-    const posts = [];
+    const posts: Post[] = [];
     for (const id of taggedPosts[tag]) {
       blogposts[id].id = id;
       posts.push(blogposts[id]);
@@ -47,5 +49,5 @@ export default {
       title: "Dominic Carrington's Blog"
     };
   }
-};
+});
 </script>

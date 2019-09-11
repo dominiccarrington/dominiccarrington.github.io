@@ -5,18 +5,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import TableOfPosts from '~/components/Blog/TableOfPosts.vue';
+import { Post, Posts } from '~/types';
 
-export default {
+export default Vue.extend({
   layout: 'blogpost',
   components: {
     TableOfPosts
   },
   async asyncData({ app }) {
-    const blogposts = await app.$axios.$get('/blogposts.json');
+    const blogposts = await app.$axios.$get('/blogposts.json') as Posts;
 
-    const posts = [];
+    const posts: Post[] = [];
     for (const id in blogposts) {
       blogposts[id].id = id;
       posts.push(blogposts[id]);
@@ -31,5 +33,5 @@ export default {
       title: "Dominic Carrington's Blog"
     };
   }
-};
+});
 </script>
