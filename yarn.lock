@@ -1414,6 +1414,11 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/chart.js@^2.8.5":
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.8.5.tgz#7d47cfd36f0a1c2c4ad6a585749bc68e8659492a"
+  integrity sha512-CohUDPD3f5e/sGI8SUs1zaUnS38MMA+4WDDxBoudQIKVqNj4LJG2P+Z0WXB+vT4jkDpc7itXYoNIZq1f1MpulA==
+
 "@types/clean-css@*":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@types/clean-css/-/clean-css-4.2.1.tgz#cb0134241ec5e6ede1b5344bc829668fd9871a8d"

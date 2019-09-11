@@ -1,10 +1,15 @@
-<script>
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
+import { mixins } from 'vue-class-component';
 import { Bar, Doughnut, HorizontalBar, Line, Pie, Scatter } from 'vue-chartjs';
+import { ChartData, ChartOptions } from 'chart.js';
 
-export default {
-  extends: Bar,
-  props: ['data', 'options'],
-  mounted () {
+@Component({})
+export default class BarChart extends mixins(Bar) {
+  @Prop({ type: Object, required: true }) readonly data!: ChartData;
+  @Prop({ type: Object, required: true }) readonly options!: ChartOptions;
+
+  mounted() {
     this.renderChart(this.data, this.options);
   }
 }

@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.2.6",
+    "@types/chart.js": "^2.8.5",
     "nodemon": "^1.18.9",
     "vue-property-decorator": "^8.2.2"
   }
