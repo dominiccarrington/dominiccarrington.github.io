@@ -1,9 +1,7 @@
 <template>
-  <li :class="'nav-item' + (active ? ' active' : '')">
-    <nuxt-link :to="link" class="nav-link">
-      {{ text }}
-    </nuxt-link>
-  </li>
+  <b-nav-item :to="href" :active="active">
+    <slot />
+  </b-nav-item>
 </template>
 
 <script lang="ts">
@@ -11,8 +9,7 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class Navlink extends Vue {
-  @Prop({ type: String, required: true }) readonly text!: string;
-  @Prop({ type: String, required: true }) readonly link!: string;
+  @Prop({ type: String, required: true }) readonly href!: string;
   public active = false;
 
   mounted() {
@@ -27,7 +24,7 @@ export default class Navlink extends Vue {
   pageActive() {
     const currentPath = this.$router.currentRoute.path;
 
-    return this.link === '/' ? currentPath === '/' : currentPath.includes(this.link);
+    return this.href === '/' ? currentPath === '/' : currentPath.includes(this.href);
   }
 }
 </script>

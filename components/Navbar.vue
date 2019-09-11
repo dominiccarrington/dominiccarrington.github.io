@@ -1,31 +1,36 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbar"
-      aria-controls="navbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon" />
-    </button>
+  <b-navbar toggleable="md" type="light" variant="light">
+    <b-navbar-brand href="/" class="d-md-none">
+      Dominic Carrington
+    </b-navbar-brand>
+    <b-navbar-toggle target="navbar" />
 
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <navlink text="Home" link="/" />
-        <navlink text="Blog" link="/blog" />
-        <navlink text="Mods" link="/mods" />
-        <navlink text="Tools" link="/tools" />
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="https://github.com/dominiccarrington" class="nav-link"><fa :icon="faGithub" /></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <b-collapse id="navbar" is-nav>
+      <b-navbar-nav>
+        <navlink href="/">
+          Home
+        </navlink>
+        <navlink href="/blog">
+          Blog
+        </navlink>
+        <navlink href="/mods">
+          Mods
+        </navlink>
+        <navlink href="/projects">
+          Projects
+        </navlink>
+        <navlink href="/tools">
+          Tools
+        </navlink>
+      </b-navbar-nav>
+
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item href="https://github.com/dominccarrington">
+          <fa :icon="faGithub" />
+        </b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script lang="ts">
