@@ -1,0 +1,9 @@
+title: Test Post (Vue)
+author: Dominic Carrington
+date: "2019-09-12 10:29"
+tags:
+  - Test
+  - JavaScript
+  - Vue
+component: TestPostVue
+preview: "This is a test post"

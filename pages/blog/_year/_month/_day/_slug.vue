@@ -10,7 +10,8 @@
         v-if="blog.tags.length > 0 && blog.tags[0] != null"
       >Tagged: {{ blog.tags.join(", ") }}</small>
     </section>
-    <section class="blog-content" v-html="$md.render(blog.content)" />
+    <section v-if="blog.type === 'md'" class="blog-content" v-html="$md.render(blog.content)" />
+    <component :is="blog.component" v-else-if="blog.type === 'vue'" />
   </article>
 </template>
 
@@ -18,8 +19,13 @@
 import Vue from 'vue';
 import { Posts } from '~/types';
 
+import TestPostVue from '~/components/Blog/Post/TestPostVue.vue';
+
 export default Vue.extend({
   layout: 'blogpost',
+  components: {
+    TestPostVue
+  },
   async asyncData({ app, params }) {
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`;
     const blogposts = await app.$axios.$get('/blogposts.json') as Posts;

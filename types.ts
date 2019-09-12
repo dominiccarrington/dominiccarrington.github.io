@@ -5,6 +5,8 @@ export interface SearchResult {
 
 export interface Post {
   id?: string,
+  type: 'md'|'vue',
+  component?: string,
   title: string;
   author: string;
   date: string;
