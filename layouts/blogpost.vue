@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar />
-    <div class="container mt-4">
+    <div class="container mt-4" style="min-height: 80vh;">
       <div class="row d-md-none d-block mb-3">
         <div class="col-12">
           <SearchField />
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <footer />
+    <Footer />
   </div>
 </template>
 
@@ -29,12 +29,14 @@
 import Navbar from '~/components/Navbar.vue';
 import BlogTags from '~/components/Blog/Tags.vue';
 import SearchField from '~/components/Blog/SearchField.vue';
+import Footer from '~/components/Footer.vue';
 
 export default {
   components: {
     Navbar,
     BlogTags,
-    SearchField
+    SearchField,
+    Footer
   }
 };
 </script>

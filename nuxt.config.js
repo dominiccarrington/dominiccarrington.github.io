@@ -64,7 +64,11 @@ export default {
     ['nuxt-fontawesome', { component: 'fa' }],
     '@nuxtjs/markdownit',
     '@nuxtjs/moment',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-147761496-1',
+      disabled: true
+    }]
   ],
 
   markdownit: {
@@ -74,21 +78,22 @@ export default {
     breaks: true,
     html: true,
     use: [
-      [
-        'markdown-it-prism',
-        {
-          init() {
-            require('prismjs/components/prism-clike');
-            require('prismjs/components/prism-markup-templating');
-            require('prismjs/components/prism-php');
-            require('prismjs/components/prism-haskell');
-          }
+      ['markdown-it-prism', {
+        init() {
+          require('prismjs/components/prism-clike');
+          require('prismjs/components/prism-markup-templating');
+          require('prismjs/components/prism-php');
+          require('prismjs/components/prism-haskell');
         }
-      ]
+      }]
     ]
   },
   sitemap: {
     hostname: 'https://dominiccarrington.github.io'
+  },
+
+  router: {
+    middleware: 'ga'
   },
 
   /*
