@@ -28,6 +28,10 @@
         <b-nav-item href="https://github.com/dominccarrington">
           <fa :icon="faGithub" />
         </b-nav-item>
+
+        <b-nav-item href="mailto:dominiccarrington@mail.com">
+          @
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
