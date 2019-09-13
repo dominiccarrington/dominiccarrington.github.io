@@ -232,6 +232,5 @@ yarn-error.log
 
 # End of https://www.gitignore.io/api/node,vuejs,macos,nuxtjs,visualstudiocode
 
-static/blogposts.json
-static/tags.json
-static/indexed.json
+static/*
+!static/google858df7f1f15fd423.html
