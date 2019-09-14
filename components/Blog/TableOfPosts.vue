@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-for="post in sortedPosts" :key="post.id" class="col-4">
+    <div v-for="post in sortedPosts" :key="post.id" class="col-12 col-sm-6 col-md-4">
       <article>
         <h3>
           <nuxt-link :to="'/blog/' + $moment(post.iso8601Date).format('YYYY/MM/DD') + '/' + post.id.substring(11)">
@@ -19,7 +19,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import moment from 'moment';
 import { Post } from '~/types';
 
-  @Component({})
+@Component({})
 export default class TableOfPosts extends Vue {
     @Prop({ type: Array, required: true }) readonly posts!: Post[];
 
