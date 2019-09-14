@@ -1,6 +1,6 @@
 <template>
   <article>
-    <h2>{{ blog.title }}</h2>
+    <h1>{{ blog.title }}</h1>
     <section class="h6">
       <small>Published On:
         {{ $moment(blog.iso8601Date).format("DD/MM/YYYY HH:mm") }}</small><br>
