@@ -46,7 +46,9 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: "Dominic Carrington's Blog"
+
+      // @ts-ignore
+      title: `Tagged: ${this.tag} - Dominic Carrington's Blog`
     };
   }
 });

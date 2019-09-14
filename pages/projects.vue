@@ -63,7 +63,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: "My Projects - Dominic Carrington's Personal Website"
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>

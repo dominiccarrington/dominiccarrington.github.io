@@ -35,6 +35,13 @@ export default Vue.extend({
     return {
       blog
     };
+  },
+  head() {
+    return {
+
+      // @ts-ignore-line
+      title: this.blog.title + " - Dominic Carrington's Blog"
+    };
   }
 });
 </script>
