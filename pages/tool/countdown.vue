@@ -24,9 +24,10 @@ export default Vue.extend({
   data: () => {
     return {
       times: ([
-        ['2019 UK General Election', moment(new Date(2019, 12, 12, 9, 0, 0))],
-        ['2020 US Presidental Election', moment(new Date(2020, 11, 3))],
-        ['New Year', moment(new Date(new Date().getFullYear() + 1, 1, 1, 0, 0, 0))]
+        ['2019 UK General Election', moment('2019-12-12 09:00:00')],
+        ['2020 US Presidental Election', moment('2020-11-03 00:00:00')],
+        ['New Year', moment(new Date(new Date().getFullYear() + 1, 0, 0, 0, 0, 0))],
+        ['Christmas', moment(new Date().getFullYear() + '-12-25 00:00:00')]
       ] as [string, moment.Moment][]).filter((a) => {
         return a[1].isAfter(moment.now());
       }).sort((a, b) => {
