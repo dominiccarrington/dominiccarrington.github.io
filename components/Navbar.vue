@@ -25,7 +25,7 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="https://github.com/dominccarrington">
+        <b-nav-item href="https://github.com/dominiccarrington">
           <fa :icon="faGithub" />
         </b-nav-item>
 
