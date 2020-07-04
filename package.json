@@ -5,11 +5,11 @@
   "author": "Dominic Carrington",
   "private": true,
   "scripts": {
-    "dev": "yarn run md2json && nuxt",
-    "build": "yarn run md2json && nuxt build",
+    "dev": "npm run md2json && nuxt",
+    "build": "npm run md2json && nuxt build",
     "start": "nuxt start",
-    "generate": "cross-env-shell API_URL=https://dominiccarrington.github.io \"yarn run md2json && nuxt generate\"",
-    "deploy": "yarn run generate && push-dir --dir=dist --branch=master --cleanup",
+    "generate": "cross-env-shell API_URL=https://dominiccarrington.github.io \"npm run md2json && nuxt generate\"",
+    "deploy": "npm run generate && push-dir --dir=dist --branch=master --cleanup",
     "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json && node postsToTags.js",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore ."
@@ -17,9 +17,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/markdownit": "^1.2.4",
     "@nuxtjs/moment": "^1.2.0",
     "@nuxtjs/pwa": "^2.6.0",
@@ -30,15 +30,11 @@
     "cross-env": "^5.2.0",
     "elasticlunr": "^0.9.5",
     "markdown-it-prism": "^2.0.1",
-    "markdown-to-json": "^0.5.1",
     "moment": "^2.24.0",
-    "node-sass": "^4.11.0",
     "nuxt": "^2.4.0",
     "nuxt-fontawesome": "^0.4.0",
-    "sass-loader": "^7.1.0",
     "v-click-outside": "^2.1.3",
-    "vue-chartjs": "^3.4.2",
-    "vue-cookie-law": "^1.10.0"
+    "vue-chartjs": "^3.4.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.2.6",
@@ -54,11 +50,14 @@
     "nodemon": "^1.18.9",
     "push-dir": "^0.4.1",
     "vue-property-decorator": "^8.2.2",
-    "yaml": "^1.6.0"
+    "yaml": "^1.6.0",
+    "markdown-to-json": "^0.5.1",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint"
+      "pre-commit": "npm run lint"
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar />
-    <div class="container mt-4" style="min-height: 80vh;">
+    <div class="container mt-4">
       <div class="row d-md-none d-block mb-3">
         <div class="col-12">
           <SearchField />

@@ -64,11 +64,7 @@ export default {
     ['nuxt-fontawesome', { component: 'fa' }],
     '@nuxtjs/markdownit',
     '@nuxtjs/moment',
-    '@nuxtjs/sitemap',
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-147761496-1',
-      disabled: true
-    }]
+    '@nuxtjs/sitemap'
   ],
 
   markdownit: {
@@ -93,7 +89,6 @@ export default {
   },
 
   router: {
-    middleware: 'ga'
   },
 
   /*

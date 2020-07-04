@@ -7,27 +7,24 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6 col-md-3">
-        <b-card
-          tag="article"
-          class="mb-2"
-        >
-          <b-card-title>
-            <nuxt-link to="/tool/countdown">Countdown</nuxt-link>
-          </b-card-title>
-          <b-card-text>A countdown timer to certain points to interest.</b-card-text>
-        </b-card>
-      </div>
+      <Card url="/tool/countdown" title="Countdown" desc="A countdown timer to certain points to interest." />
+      <Card url="/tool/gameoflife" title="Game Of Life" desc="An online version of the Game of Life." />
+      <Card url="/tool/langtonsant" title="Langton's Ant" desc="An online version of Langton's Ant, an autonomous robot following basic rules." />
     </div>
   </div>
 </template>
 
 <script>
+import Card from '@/components/Card.vue';
+
 export default {
   head() {
     return {
       title: "Tools - Dominic Carrington's Personal Website"
     };
+  },
+  components: {
+    Card
   }
 };
 </script>

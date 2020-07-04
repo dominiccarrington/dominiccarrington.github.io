@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar />
-    <div class="container mt-4" style="min-height: 80vh;">
+    <div class="container mt-4">
       <nuxt />
     </div>
     <Footer />
