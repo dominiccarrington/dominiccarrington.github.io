@@ -8,7 +8,7 @@
     "dev": "npm run md2json && nuxt",
     "build": "npm run md2json && nuxt build",
     "start": "nuxt start",
-    "generate": "cross-env-shell API_URL=https://dominiccarrington.github.io \"npm run md2json && nuxt generate\"",
+    "generate": "cross-env-shell API_URL=https://dominiccarrington.github.io \"npm run md2json && nuxt build && nuxt export\"",
     "deploy": "npm run generate && push-dir --dir=dist --branch=master --cleanup",
     "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json && node postsToTags.js",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
