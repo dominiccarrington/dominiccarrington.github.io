@@ -1,37 +1,7 @@
 /*!
- * Vue.js v2.6.10
- * (c) 2014-2019 Evan You
+ * vue-client-only v0.0.0-semantic-release
+ * (c) 2021-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
- */
-
-/*!
-  * vue-router v3.0.7
-  * (c) 2019 Evan You
-  * @license MIT
-  */
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-/**
-  * vue-class-component v7.1.0
-  * (c) 2015-present Evan You
-  * @license MIT
-  */
-
-/*! 
-  * portal-vue © Thorsten Lünborg, 2019 
-  * 
-  * Version: 2.1.6
-  * 
-  * LICENCE: MIT 
-  * 
-  * https://github.com/linusborg/portal-vue
-  * 
  */
 
 /*!
@@ -40,134 +10,15 @@
  * Released under the MIT License.
  */
 
-/**!
- * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
- * @license
- * Copyright (c) 2016 Federico Zivolo and contributors
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 
 /*!
- * vue-client-only v2.0.0
- * (c) 2019-present egoist <0x142857@gmail.com>
+  * vue-router v3.5.2
+  * (c) 2021 Evan You
+  * @license MIT
+  */
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
  * Released under the MIT License.
  */
-
-/*!
- * clipboard.js v2.0.4
- * https://zenorocha.github.io/clipboard.js
- * 
- * Licensed MIT © Zeno Rocha
- */
-
-/*!
- * vue-cookie-law v1.11.0
- * (c) 2019 Jakub Juszczak <jakub@posteo.de>
- * 
- */
-
-/**
- * elasticlunr - http://weixsong.github.io
- * Lightweight full-text search engine in Javascript for browser search and offline search. - 0.9.5
- *
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- * MIT Licensed
- * @license
- */
-
-/*!
- * elasticlunr.js
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.utils
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.EventEmitter
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.tokenizer
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.Pipeline
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.Index
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.DocumentStore
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.stemmer
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- * Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
- */
-
-/*!
- * elasticlunr.stopWordFilter
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.trimmer
- * Copyright (C) 2016 Oliver Nightingale
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * elasticlunr.InvertedIndex
- * Copyright (C) 2016 Wei Song
- * Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
- */
-
-/*!
- * elasticlunr.Configuration
- * Copyright (C) 2016 Wei Song
- */
-
-/*!
- * lunr.SortedSet
- * Copyright (C) 2016 Oliver Nightingale
- */
-
-/*! https://mths.be/punycode v1.4.1 by @mathias */
