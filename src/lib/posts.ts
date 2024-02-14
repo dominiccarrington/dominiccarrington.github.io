@@ -17,9 +17,8 @@ const metadataValidator = z.object({
   image: z.string().optional(),
 });
 
-export type BlogPost = { id: string; date: DateTime } & Omit<
-  z.infer<typeof metadataValidator>,
-  "date"
+export type BlogPost = { id: string; localeDate: string } & z.infer<
+  typeof metadataValidator
 >;
 
 export type BlogPostWithContent = BlogPost & { content: string };
@@ -49,7 +48,8 @@ function parsePostMetadata(matterResult: GrayMatterFile<string>) {
 
   return {
     ...metadata,
-    date: DateTime.fromISO(metadata.date),
+    tags: metadata.tags.sort((a, b) => a.localeCompare(b)),
+    localeDate: DateTime.fromISO(metadata.date).toLocaleString(),
   };
 }
 
@@ -100,4 +100,19 @@ export function getSortedPostsData(): BlogPost[] {
       return -1;
     }
   });
+}
+
+export function getTags(): Record<string, number> {
+  const posts = getSortedPostsData();
+
+  return posts.reduce(
+    function (carry, post) {
+      for (const tag of post.tags) {
+        carry[tag] = (carry[tag] || 0) + 1;
+      }
+
+      return carry;
+    },
+    {} as Record<string, number>,
+  );
 }

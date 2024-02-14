@@ -48,8 +48,7 @@ export default async function BlogPost({
             <span>Blog</span>
           </Link>
           <h1>{postData.title}</h1>
-          Published: {postData.date.toLocaleString()} |{" "}
-          {postData.tags.join(", ")}
+          Published: {postData.localeDate} | {postData.tags.join(", ")}
         </header>
         <div dangerouslySetInnerHTML={{ __html: postData.content }}></div>
         <footer>

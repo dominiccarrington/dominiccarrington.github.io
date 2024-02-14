@@ -1,6 +1,8 @@
 ---
 title: "Using torchlight.dev with Unified/Remark"
-tags: ["torchlight", "js"]
+tags:
+  - Torchlight
+  - JavaScript
 date: "2024-02-13"
 lead: "Lorem ipsum dot asim apploe"
 ---

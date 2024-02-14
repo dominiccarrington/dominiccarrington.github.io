@@ -22,7 +22,7 @@ export default async function generateRssFeed() {
       title: post.title,
       description: post.lead,
       url: `${site_url}/blog/${post.id}`,
-      date: post.date.toJSDate(),
+      date: post.date,
     });
   });
 

@@ -2,6 +2,7 @@
 
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faRss } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,6 +15,7 @@ const LINKS = {
 };
 
 const EXTERNAL = {
+  "/rss.xml": <FontAwesomeIcon icon={faRss} />,
   "mailto:dominiccarrington@mail.com": <FontAwesomeIcon icon={faEnvelope} />,
   "//github.com/dominiccarrington": <FontAwesomeIcon icon={faGithub} />,
   "//linkedin.com/in/dominic-carrington-0b00a2207/": (
