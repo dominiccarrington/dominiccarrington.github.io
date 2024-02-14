@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 const LINKS = {
   "/": "Home",
   "/about": "About",
+  "/blog": "Blog",
   "/portfolio": "Portfolio",
 };
 
@@ -27,7 +28,7 @@ export default function Navbar() {
     <nav className="flex flex-col gap-y-2 px-8 py-2 md:py-4 md:flex-row border-b border-b-slate-700 mb-4">
       <ul className="flex justify-center gap-x-4 text-xl md:order-2 md:ml-auto md:justify-end">
         {Object.keys(EXTERNAL).map((href) => (
-          <li>
+          <li key={href}>
             <a href={href} target="_blank">
               {EXTERNAL[href as keyof typeof EXTERNAL]}
             </a>
@@ -37,7 +38,7 @@ export default function Navbar() {
 
       <ul className="flex gap-x-4 md:justify-start">
         {Object.keys(LINKS).map((href) => (
-          <li className="flex w-full items-center justify-center">
+          <li className="flex w-full items-center justify-center" key={href}>
             <Link
               href={href}
               className={`${pathname === href ? "font-semibold underline" : ""}`}
