@@ -1,3 +1,4 @@
+import generateRssFeed from "@/lib/generateRSSFeed";
 import { getPostData, getSortedPostsData } from "@/lib/posts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -6,7 +7,8 @@ type Params = {
   slug: string;
 };
 
-export function generateStaticParams(): Params[] {
+export async function generateStaticParams(): Promise<Params[]> {
+  await generateRssFeed();
   const posts = getSortedPostsData();
 
   return posts.map((post) => ({
